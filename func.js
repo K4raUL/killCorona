@@ -34,7 +34,7 @@ async function selectCase(sender, iter)
     audio.play();
     await sleep(500);
     ctx.clearRect(0, 0, c.width, c.height);
-    await sleep(250);
+    await sleep(300);
     
     virus[iter] = 0;
     enemyTurn();
