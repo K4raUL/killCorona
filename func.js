@@ -54,7 +54,7 @@ async function selectCase(sender, iter)
     for (var i = 0; i < 5; i++) sum += virus[i];
         
     if (sum == 0) drawWin();
-    else if (sum >= 40) drawDefeat();
+    else if (sum >= 20) drawDefeat();
     
     document.getElementById("counter").innerHTML = sum;
 }
