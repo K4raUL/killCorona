@@ -1,0 +1,31 @@
+.draw {
+	/*display: inline-block;*/
+    height: 168;
+    width: 84%;
+    
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    
+    text-align:center;
+    
+    /*border:1px solid #99A3A4;
+    box-sizing: border-box;*/
+}
+
+canvas {
+	display: inline-block;
+    background-color: white;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+canvas.case {
+ 	background: url(image/suitcase.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;   
+}
+
+canvas.anti {
+    
+}
