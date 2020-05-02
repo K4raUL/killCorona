@@ -1,5 +1,6 @@
 var virus = [1, 1, 1, 1, 1];
 var cases = ["myC0", "myC1", "myC2", "myC3", "myC4"]
+var gameOver = 0;
 
 // suitcase filling block
 var virV = 5;
@@ -22,11 +23,20 @@ var audio = new Audio('sound/spray.mp3');
 
 function init()
 {
+    gameOver = 0;
+    
+    var resstyle = document.getElementById("counter").style;
+    resstyle.color = "blue";
+    
+    virus = [1, 1, 1, 1, 1];
+    document.getElementById("counter").innerHTML = 5;
     drawField();
 }
 
 async function selectCase(sender, iter)
 {
+    if (gameOver) return;
+    
     var c = document.getElementById(sender.id);
     var ctx = c.getContext("2d");
         
@@ -42,6 +52,10 @@ async function selectCase(sender, iter)
     
     var sum = 0;
     for (var i = 0; i < 5; i++) sum += virus[i];
+        
+    if (sum == 0) drawWin();
+    else if (sum >= 40) drawDefeat();
+    
     document.getElementById("counter").innerHTML = sum;
 }
 
@@ -97,16 +111,26 @@ function drawVirus(canv, value)
     }
 }
 
-function rndInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+function drawWin()
+{
+    var resstyle = document.getElementById("counter").style;
+    resstyle.color = "green";
+    
+    gameOver = 1;
 }
 
+function drawDefeat()
+{
+    var resstyle = document.getElementById("counter").style;
+    resstyle.color = "red";
+    
+    gameOver = 1;
+}
 
-
-
-
-
-
+function rndInt(max) 
+{
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 
 
